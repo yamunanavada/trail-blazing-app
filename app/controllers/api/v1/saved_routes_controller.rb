@@ -1,0 +1,3 @@
+class SavedRoutesController < ApplicationController
+
+end
