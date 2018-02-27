@@ -3,4 +3,5 @@ class Route < ApplicationRecord
   has_many :users, through: :saved_routes
 
 
+
 end
