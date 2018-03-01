@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  skip_before_action :authorized, only: [:index]
+  skip_before_action :authorized, only: [:index, :create]
 
   def index
     @users = User.all
@@ -16,11 +16,15 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    byebug
     if @user.save
-      render json: @user, status: 200
+      token = encode_token({ user_id: @user.id })
+      byebug
+      render json: {user: @user, jwt: token},  status: 200
     else
       render json: {errors: @user.errors.full_messages}, status: 422
     end
+  end
 
   private
 
