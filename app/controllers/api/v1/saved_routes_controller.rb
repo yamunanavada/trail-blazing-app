@@ -1,4 +1,5 @@
 class Api::V1::SavedRoutesController < ApplicationController
+  before_action :authorized
 
   def index
   end

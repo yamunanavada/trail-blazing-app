@@ -13,7 +13,6 @@ class Api::V1::RoutesController < ApplicationController
 
   def create
     @route = Route.new(route_params)
-    byebug
     if @route.save
       render json: @route
     else
