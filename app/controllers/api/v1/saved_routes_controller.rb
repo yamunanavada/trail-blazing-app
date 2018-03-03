@@ -17,8 +17,9 @@ class Api::V1::SavedRoutesController < ApplicationController
   def update
   end
 
-  def destroy
-    @saved_route = SavedRoute.find(params[:id])
+
+  def destroy_favorite
+    @saved_route = SavedRoute.find_by(user_id: saved_route_params[:user_id], route_id: saved_route_params[:route_id])
     @saved_route.destroy
     render json: {message: "route was deleted from saved routes"}
   end

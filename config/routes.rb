@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :users, :routes, :saved_routes
       post "/login", to: "auth#create"
       post "/get_current_user", to: "auth#show"
+      post "/destroy_favorite", to: "saved_routes#destroy_favorite"
     end
   end
 end
