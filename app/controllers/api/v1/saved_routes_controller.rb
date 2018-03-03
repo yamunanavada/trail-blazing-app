@@ -5,9 +5,7 @@ class Api::V1::SavedRoutesController < ApplicationController
   end
 
   def create
-    byebug
     @saved_route = SavedRoute.new(saved_route_params)
-
     if @saved_route.save
       render json: @saved_route
     else
@@ -19,7 +17,10 @@ class Api::V1::SavedRoutesController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    @saved_route = SavedRoute.find(params[:id])
+    @saved_route.destroy
+    render json: {message: "route was deleted from saved routes"}
   end
 
   private
