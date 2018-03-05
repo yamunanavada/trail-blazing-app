@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       post "/login", to: "auth#create"
       post "/get_current_user", to: "auth#show"
       post "/destroy_favorite", to: "saved_routes#destroy_favorite"
+      post "/update_favorite", to: "saved_routes#update_favorite"
     end
   end
 end

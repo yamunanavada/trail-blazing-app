@@ -14,7 +14,14 @@ class Api::V1::SavedRoutesController < ApplicationController
 
   end
 
-  def update
+
+  def update_favorite
+    @saved_route = SavedRoute.find_by(user_id: saved_route_params[:user_id], route_id: saved_route_params[:route_id])
+    if @saved_route.update(saved_route_params)
+      render json: @saved_route
+    else
+      render json: {errors: @saved_route.errors.full_messages}, status: 422
+    end
   end
 
 

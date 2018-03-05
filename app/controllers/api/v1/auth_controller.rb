@@ -6,7 +6,8 @@ class Api::V1::AuthController < ApplicationController
     if @user && @user.authenticate(user_login_params[:password])
       token = encode_token({ user_id: @user.id })
       @saved_routes = @user.routes
-      render json: { user: @user, saved_routes: @saved_routes, jwt: token }, status: 202
+      @user_routes = @user.saved_routes
+      render json: { user: @user, saved_routes: @saved_routes, user_routes: @user_routes, jwt: token }, status: 202
     else
       render json: { message: "Invalid username or password" }, status: 401
     end
