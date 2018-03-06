@@ -16,8 +16,11 @@ class Api::V1::AuthController < ApplicationController
 
   def show
     if decoded_token
+      token = encode_token({ user_id: @user.id })
       @user = User.find(decoded_token[0]['user_id'])
-      render json: {user: @user}, status: 202
+      @saved_routes = @user.routes
+      @user_routes = @user.saved_routes
+      render json: {user: @user, saved_routes: @saved_routes, user_routes: @user_routes, jwt: token}, status: 202
     end
   end
 
