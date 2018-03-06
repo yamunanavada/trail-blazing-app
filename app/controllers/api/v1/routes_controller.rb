@@ -7,6 +7,7 @@ class Api::V1::RoutesController < ApplicationController
   end
 
   def show
+    byebug
     @route = Route.find(params[:id])
     render json: @route
   end
