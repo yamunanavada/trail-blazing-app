@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Find routes for users to run in new cities based on recommendations from the running community
 
 ## Motivation
-Final project for the Flatiron School. This repo contains the front end of the app only. Be sure to visit this repo for the front end: https://github.com/yamunanavada/trail-blazing-app-frontend.
+Final project for the Flatiron School. This repo contains the back end of the app only. Be sure to visit this repo for the front end: https://github.com/yamunanavada/trail-blazing-app-frontend.
 
 ## Features
 Create running routes in different cities.
